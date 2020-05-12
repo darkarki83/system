@@ -6,9 +6,9 @@ namespace Matrix1
 {
     public class Program
     {
-
         static void Main(string[] args)
         {
+            Console.SetWindowSize(100, 30);
             Random rand = new Random();
             int j;
             List<int> Ww = new List<int>();
