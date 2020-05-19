@@ -10,29 +10,55 @@ namespace Matrix1
         public void Run(object w)
         {
             Random rand = new Random();
+
+            List<char> vs = new List<char>();
+            int l = rand.Next(1, 20);
+            for (int i = 0; i < l; i++)
+            {
+                vs.Add(ConsoleLib.CRand());
+            }
             while (true)
             {
-                for (int i = 0; i < 30; i++)
+                int count = 0;
+                for (int i = 0; i < 29 + vs.Count; i++)
                 {
-                    ConsoleLib.WriteChar((int)w, i, ' ');
-                }
-                int h = rand.Next(1, 25);
-                int l = rand.Next(1, 29 - h);
+                    if (i >= vs.Count)
+                    {
+                        for (int k = 0; k < vs.Count; k++)
+                        {
+                            if (k + count < 29)
+                            {
+                                if (i - 1 == k + count)
+                                    ConsoleLib.SetColor(ConsoleColor.White, ConsoleColor.Black);
+                                else if (i - 2 == k + count)
+                                    ConsoleLib.SetColor(ConsoleColor.Green, ConsoleColor.Black);
+                                else
+                                    ConsoleLib.SetColor(ConsoleColor.DarkGreen, ConsoleColor.Black);
+                                ConsoleLib.WriteChar((int)w, count + k, vs[k]);
+                            }
+                        }
+                        count++;
+                    }
+                    else
+                    {
+                        for (int k = 0; k < i; k++)
+                        {
+                            if (k == i - 1)
+                                ConsoleLib.SetColor(ConsoleColor.White, ConsoleColor.Black);
+                            else if (k == i - 2)
+                                ConsoleLib.SetColor(ConsoleColor.Green, ConsoleColor.Black);
+                            else
+                                ConsoleLib.SetColor(ConsoleColor.DarkGreen, ConsoleColor.Black);
 
-                for (int i = h; i < l + h; i++)
-                {
-                    char c = ConsoleLib.CRand();
-                    if (i == h)
-                        ConsoleLib.SetColor(ConsoleColor.White, ConsoleColor.Black);
-                    else if (i == h + 1)
-                        ConsoleLib.SetColor(ConsoleColor.Green, ConsoleColor.Black);
-                    else if (i == h + 2)
-                        ConsoleLib.SetColor(ConsoleColor.DarkGreen, ConsoleColor.Black);
-
-                    ConsoleLib.WriteChar((int)w, i, ConsoleLib.CRand());
+                            ConsoleLib.WriteChar((int)w, k, vs[vs.Count - 1 + k - i]);
+                        }
+                    }
                     Thread.Sleep(100);
+                    for (int q = 0; q < 29 ; q++)
+                    {
+                        ConsoleLib.WriteChar((int)w, q, ' ');
+                    }
                 }
-
             }
         }
     }

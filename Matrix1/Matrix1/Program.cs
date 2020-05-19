@@ -12,7 +12,7 @@ namespace Matrix1
             Random rand = new Random();
             int j;
             List<int> Ww = new List<int>();
-            while(Ww.Count <= 20)
+            while(Ww.Count <= 15)
             {
                 int num = rand.Next(1, 100);
                 if(Ww.Count != 0)
@@ -44,8 +44,10 @@ namespace Matrix1
                 backgroundThread1.Start(Ww[i]);
             }
 
-            while(true)
-            { }
+            
+
+             while (true)
+             { }
         }
     }
 }
