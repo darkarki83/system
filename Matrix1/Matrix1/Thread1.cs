@@ -7,6 +7,7 @@ namespace Matrix1
 {
     public class Thread1
     {
+        public static object counterLock = new object();
         public void Run(object w)
         {
             Random rand = new Random();
@@ -15,7 +16,7 @@ namespace Matrix1
             int l = rand.Next(1, 20);
             for (int i = 0; i < l; i++)
             {
-                vs.Add(ConsoleLib.CRand());
+                    vs.Add(ConsoleLib.CRand());
             }
             while (true)
             {
@@ -28,13 +29,17 @@ namespace Matrix1
                         {
                             if (k + count < 29)
                             {
-                                if (i - 1 == k + count)
-                                    ConsoleLib.SetColor(ConsoleColor.White, ConsoleColor.Black);
-                                else if (i - 2 == k + count)
-                                    ConsoleLib.SetColor(ConsoleColor.Green, ConsoleColor.Black);
-                                else
-                                    ConsoleLib.SetColor(ConsoleColor.DarkGreen, ConsoleColor.Black);
-                                ConsoleLib.WriteChar((int)w, count + k, vs[k]);
+                                lock (counterLock)
+                                {
+                                    if (i - 1 == k + count)
+                                        ConsoleLib.SetColor(ConsoleColor.White, ConsoleColor.Black);
+                                    else if (i - 2 == k + count)
+                                        ConsoleLib.SetColor(ConsoleColor.Green, ConsoleColor.Black);
+                                    else
+                                        ConsoleLib.SetColor(ConsoleColor.DarkGreen, ConsoleColor.Black);
+
+                                    ConsoleLib.WriteChar((int)w, count + k, vs[k]);
+                                }
                             }
                         }
                         count++;
@@ -43,20 +48,26 @@ namespace Matrix1
                     {
                         for (int k = 0; k < i; k++)
                         {
-                            if (k == i - 1)
-                                ConsoleLib.SetColor(ConsoleColor.White, ConsoleColor.Black);
-                            else if (k == i - 2)
-                                ConsoleLib.SetColor(ConsoleColor.Green, ConsoleColor.Black);
-                            else
-                                ConsoleLib.SetColor(ConsoleColor.DarkGreen, ConsoleColor.Black);
+                            lock (counterLock)
+                            {
+                                if (k == i - 1)
+                                    ConsoleLib.SetColor(ConsoleColor.White, ConsoleColor.Black);
+                                else if (k == i - 2)
+                                    ConsoleLib.SetColor(ConsoleColor.Green, ConsoleColor.Black);
+                                else
+                                    ConsoleLib.SetColor(ConsoleColor.DarkGreen, ConsoleColor.Black);
 
-                            ConsoleLib.WriteChar((int)w, k, vs[vs.Count - 1 + k - i]);
+                                ConsoleLib.WriteChar((int)w, k, vs[vs.Count - 1 + k - i]);
+                            }
                         }
                     }
                     Thread.Sleep(100);
                     for (int q = 0; q < 29 ; q++)
                     {
-                        ConsoleLib.WriteChar((int)w, q, ' ');
+                        lock (counterLock)
+                        {
+                            ConsoleLib.WriteChar((int)w, q, ' ');
+                        }
                     }
                 }
             }
