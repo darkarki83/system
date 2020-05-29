@@ -13,13 +13,17 @@ namespace Simafor.Views
     {
         event EventHandler CreateTread;
         event EventHandler NewDoubleClick;
+        event EventHandler UpdateI;
 
         ListBox ListNewThread { get; set; }
         ListBox ListWaitThread { get; set; }
         ListBox ListWorkThread { get; set; }
+        ListView ListViewWork { get; set; }
 
         List<NewThread> NewThreads { get; set; }
         List<NewThread> WaitThreads { get; set; }
         List<NewThread> WorkThreads { get; set; }
+
+        void Update(object sender);
     }
 }

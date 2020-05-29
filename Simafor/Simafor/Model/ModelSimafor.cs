@@ -19,21 +19,35 @@ namespace Simafor.Model
             myThreads = new List<NewThread>();
             waitThreads = new List<NewThread>();
             semaphore = new Semaphore(3, 3, SemaphoreGuid);
-
+            CountWork = 0;
+            SimFull = false;
+            ThreadNum = 1;
         }
+        public bool SimFull { get; set; }
+        public int CountWork { get; set; }
+        public int ThreadNum { get; set; }
         public List<NewThread> MyThreads { get => myThreads; set => myThreads = value; }
         public List<NewThread> WaitThreads { get => waitThreads; set => waitThreads = value; }
         public void CreateThread()
         {
-            if (MyThreads.Count > 0)
-                MyThreads.Add(new NewThread(MyThreads.Count + 1, semaphore));
-            else
-                MyThreads.Add(new NewThread(1, semaphore));
+            MyThreads.Add(new NewThread(ThreadNum, semaphore));
+            ThreadNum++;
         }
         public void NewDoubleClick(int select)
         {
-             WaitThreads.Add(MyThreads[select]);
-             MyThreads.RemoveAt(select);
+            IsHavePlase();
+            WaitThreads.Add(MyThreads[select]);
+            CountWork++;
+            MyThreads.RemoveAt(select);
+        }
+
+        public void IsHavePlase()
+        {
+            if(!semaphore.WaitOne(0))
+                SimFull = true;
+            else
+                SimFull = false;
+
         }
     }
 }

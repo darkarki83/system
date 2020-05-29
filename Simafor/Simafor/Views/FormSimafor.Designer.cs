@@ -37,6 +37,9 @@
             this.NumberPlace = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.listViewWork = new System.Windows.Forms.ListView();
+            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnStat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +83,7 @@
             this.listBoxWork.Size = new System.Drawing.Size(190, 104);
             this.listBoxWork.TabIndex = 3;
             this.listBoxWork.Click += new System.EventHandler(this.listBoxWork_Click);
+            //this.listBoxWork.Move += new System.EventHandler(this.listBoxWork_Move);
             // 
             // listBoxWait
             // 
@@ -101,7 +105,6 @@
             this.listBoxNew.Name = "listBoxNew";
             this.listBoxNew.Size = new System.Drawing.Size(190, 104);
             this.listBoxNew.TabIndex = 5;
-            this.listBoxNew.Click += new System.EventHandler(this.listBoxNew_Click);
             this.listBoxNew.DoubleClick += new System.EventHandler(this.listBoxNew_DoubleClick);
             // 
             // NumberPlace
@@ -151,11 +154,35 @@
             0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // listViewWork
+            // 
+            this.listViewWork.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnName,
+            this.columnStat});
+            this.listViewWork.HideSelection = false;
+            this.listViewWork.Location = new System.Drawing.Point(13, 166);
+            this.listViewWork.Name = "listViewWork";
+            this.listViewWork.Size = new System.Drawing.Size(189, 97);
+            this.listViewWork.TabIndex = 10;
+            this.listViewWork.UseCompatibleStateImageBehavior = false;
+            this.listViewWork.View = System.Windows.Forms.View.Details;
+            // 
+            // columnName
+            // 
+            this.columnName.Text = "Name";
+            this.columnName.Width = 120;
+            // 
+            // columnStat
+            // 
+            this.columnStat.Text = "Stat";
+            this.columnStat.Width = 65;
+            // 
             // FormSimafor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 321);
+            this.Controls.Add(this.listViewWork);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.NumberPlace);
@@ -187,6 +214,9 @@
         private System.Windows.Forms.Label NumberPlace;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ListView listViewWork;
+        private System.Windows.Forms.ColumnHeader columnName;
+        private System.Windows.Forms.ColumnHeader columnStat;
     }
 }
 
