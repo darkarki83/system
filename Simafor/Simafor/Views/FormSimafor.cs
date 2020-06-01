@@ -23,7 +23,7 @@ namespace Simafor
         public event EventHandler NewDoubleClick;
         public event EventHandler UpdateI;
 
-        public ListView ListViewWork { get => listViewWork; set => listViewWork = value; }
+        //public ListView ListViewWork { get => listViewWork; set => listViewWork = value; }
 
 
         public ListBox ListNewThread { get => listBoxNew; set => listBoxNew = value; }
@@ -54,6 +54,34 @@ namespace Simafor
 
         }
 
+        public void listViewWorkSafe(string name, string stat)
+        {
+            if (InvokeRequired)
+                BeginInvoke(new Action<string, string>((n, s) => { listViewWorkSet(n, s); }), (name, stat));
+            else
+                listViewWorkSet(name, stat);
+        }
+
+        public void listViewWorkSet(string name, string stat)
+        {
+            ListViewItem item = new ListViewItem();
+            listViewWork.Items.Add(item);
+            item.Text = name;
+            item.SubItems.Add(stat);
+        }
+
+        public string listViewWorkGet(int index)
+        {
+            return listViewWork.Items[index].Text;
+        }
+
+        public ListView ListViewWork
+        { 
+        get => listViewWork; 
+         set => listViewWork = value; 
+        }
+
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             CreateTread(sender, e);
@@ -76,7 +104,7 @@ namespace Simafor
 
         private void listBoxNew_DoubleClick(object sender, EventArgs e)
         {
-            if(ListViewWork.Items.Count == 0)
+            if(listViewWork.Items.Count == 0)
             {
                 timer = new Timer(tm, num, 0, 1000);
             }
@@ -89,7 +117,7 @@ namespace Simafor
 
         public void Update(object sender)
         {
-            if (ListViewWork.Items.Count > 0)
+            if (listViewWork.Items.Count > 0)
             {
                 UpdateI(sender, EventArgs.Empty);
             }

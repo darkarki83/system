@@ -39,9 +39,7 @@ namespace Simafor.Presenters
             if (Model.CountWork <= 3)
             {
                 ListViewItem item = new ListViewItem();
-                View.ListViewWork.Items.Add(item);
-                item.Text = Model.WaitThreads[Model.WaitThreads.Count - 1].Thread.Name;
-                item.SubItems.Add(Model.WaitThreads[Model.WaitThreads.Count - 1].I.ToString());
+                View.listViewWorkSafe(Model.WaitThreads[Model.WaitThreads.Count - 1].Thread.Name, Model.WaitThreads[Model.WaitThreads.Count - 1].I.ToString());
             }
             else
             {
@@ -49,25 +47,24 @@ namespace Simafor.Presenters
             }
 
         }
+
         public void UpdateI(object sender, EventArgs e)
         {
             int j = 0;
-            if (View.ListViewWork.Items.Count > 0)
-            {
-                lock (counterLock)
+              lock (counterLock)
                 {
                     foreach (var item in Model.WaitThreads)
                     {
-                        //View.ListViewWork.Invoke((MethodInvoker)(() => Items[j].Text = counter.ToString()));
-                        if (View.ListViewWork.Items[j].Text == $"Thread {item.NumberName}")
+          
+                        if (true)
                         {
-                            View.ListViewWork.Invoke((MethodInvoker)(() => View.ListViewWork.Items[j].SubItems[1].Text = item.I.ToString()));
+                        View.listViewWorkSafe(item.Thread.Name.ToString(), item.I.ToString());
                         }
                         j++;
                         //View.ListNewThread.Items.Add(Model.MyThreads[Model.MyThreads.Count - 1]);
                     }
                 }
-            }
+           
         }
     }
 }

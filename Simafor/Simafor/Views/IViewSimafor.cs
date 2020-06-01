@@ -18,11 +18,16 @@ namespace Simafor.Views
         ListBox ListNewThread { get; set; }
         ListBox ListWaitThread { get; set; }
         ListBox ListWorkThread { get; set; }
-        ListView ListViewWork { get; set; }
+        //ListView ListViewWork { get; set; }
 
         List<NewThread> NewThreads { get; set; }
         List<NewThread> WaitThreads { get; set; }
         List<NewThread> WorkThreads { get; set; }
+
+        void listViewWorkSafe(string name, string stat);
+        void listViewWorkSet(string name, string stat);
+        string listViewWorkGet(int index);
+
 
         void Update(object sender);
     }
