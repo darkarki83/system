@@ -4,14 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ExamSystem.Views
 {
-    public interface IFormExam : IView
+    public interface IFormAddWord : IView
     {
-        event EventHandler AddWord;
-        ListBox ListBoxWord { get; set; }
-
+        string NewWord { get ; set; }
+        event EventHandler AddNewW;
     }
 }

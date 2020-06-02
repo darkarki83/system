@@ -8,5 +8,7 @@ namespace ExamSystem.Model
 {
     public interface IModelExam
     {
+        string NewWord { get; set; }
+        List<string> Words { get; set; }
     }
 }

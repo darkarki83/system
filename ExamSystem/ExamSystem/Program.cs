@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ExamSystem.Model;
+using ExamSystem.Presenter;
+using System;
 using System.Windows.Forms;
 
 namespace ExamSystem
@@ -16,7 +15,8 @@ namespace ExamSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormExam());
+            PresenterExam presenter = new PresenterExam(new ModelExam(), new FormExam());
+            Application.Run((Form)presenter.View);
         }
     }
 }

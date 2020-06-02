@@ -31,7 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxWord = new System.Windows.Forms.ListBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonPause = new System.Windows.Forms.Button();
@@ -39,6 +39,8 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonFile = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,13 +68,13 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // listBox1
+            // listBoxWord
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 61);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(214, 264);
-            this.listBox1.TabIndex = 2;
+            this.listBoxWord.FormattingEnabled = true;
+            this.listBoxWord.Location = new System.Drawing.Point(12, 61);
+            this.listBoxWord.Name = "listBoxWord";
+            this.listBoxWord.Size = new System.Drawing.Size(214, 264);
+            this.listBoxWord.TabIndex = 2;
             // 
             // progressBar1
             // 
@@ -139,11 +141,33 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "label2";
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(237, 61);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 29);
+            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.Text = "Add word";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonFile
+            // 
+            this.buttonFile.Location = new System.Drawing.Point(237, 106);
+            this.buttonFile.Name = "buttonFile";
+            this.buttonFile.Size = new System.Drawing.Size(75, 29);
+            this.buttonFile.TabIndex = 11;
+            this.buttonFile.Text = "Add from";
+            this.buttonFile.UseVisualStyleBackColor = true;
+            this.buttonFile.Click += new System.EventHandler(this.buttonFile_Click);
+            // 
             // FormExam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 542);
+            this.Controls.Add(this.buttonFile);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCancel);
@@ -151,7 +175,7 @@
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxWord);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -172,7 +196,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxWord;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonPause;
@@ -180,6 +204,8 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonFile;
     }
 }
 
