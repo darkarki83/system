@@ -1,0 +1,9 @@
+LIBRARY "CONSOLELIB.DLL"
+DESCRIPTION ConsoleLib Dynamic Library
+
+EXPORTS
+    ShowCursor
+    GotoXY
+    WriteStr
+    WriteChar 
+    WriteChars

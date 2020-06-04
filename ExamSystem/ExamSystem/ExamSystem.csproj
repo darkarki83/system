@@ -49,6 +49,7 @@
     <Compile Include="Common\BasePresenter.cs" />
     <Compile Include="Common\IPresenter.cs" />
     <Compile Include="Common\IView.cs" />
+    <Compile Include="Common\WinApi.cs" />
     <Compile Include="Presenter\Presenter.cs" />
     <Compile Include="Presenter\PresenterAddWord.cs" />
     <Compile Include="Views\FormAddWord.cs">
