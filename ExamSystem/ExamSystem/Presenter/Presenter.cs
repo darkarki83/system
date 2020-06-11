@@ -21,7 +21,9 @@ namespace ExamSystem.Presenter
             View.AddWord += AddWords;
             View.AddFromFile += AddFromFile;
             View.StartSearch += StartSearch;
-
+            View.Cancel += Cancel;
+            View.Pause += Pause;
+            View.Continue += Continue;
             View.CloseForm += CloseForm;
             Model.Progress += OurProgress;
         }
@@ -59,6 +61,18 @@ namespace ExamSystem.Presenter
         {
             Model.btnStartAsyncOperation_Click(sender, e);
         }
+        public void Cancel(object sender, EventArgs e)
+        {
+            Model.btnCancel_Click(sender, e);
+        }
+        public void Pause(object sender, EventArgs e)
+        {
+            Model.btnPause_Click(sender, e);
+        }
+        public void Continue(object sender, EventArgs e)
+        {
+            Model.btnContinue_Click(sender, e);
+        }
 
 
         public void CloseForm(object sender, EventArgs e)
@@ -68,7 +82,10 @@ namespace ExamSystem.Presenter
         public void OurProgress(object sender, ProgressChangedEventArgs e)
         {
             View.Progress.Value = e.ProgressPercentage;
-            View.LabelProgres.Text = $"Processing... {View.Progress.Value}%";
+            if (View.Progress.Value > 0)
+                View.LabelProgres.Text = $"Processing... {View.Progress.Value}%";
+            else
+                View.LabelProgres.Text = "Start...";
         }
     }
 }

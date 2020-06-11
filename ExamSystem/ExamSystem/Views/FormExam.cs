@@ -19,6 +19,9 @@ namespace ExamSystem
         public event EventHandler AddFromFile;
         public event EventHandler CloseForm;
         public event EventHandler StartSearch;
+        public event EventHandler Cancel;
+        public event EventHandler Continue;
+        public event EventHandler Pause;
 
         public ListBox ListBoxWord { get => listBoxWord; set => listBoxWord = value; }
         public ProgressBar Progress { get => progressBar; set => progressBar = value; }
@@ -27,8 +30,16 @@ namespace ExamSystem
         {
             InitializeComponent();
             buttonDelete.Enabled = false;
+            EnableButton(true, false, false, false);
         }
+        public void EnableButton(bool isS, bool isC, bool isP, bool isCon)
+        {
+            buttonStart.Enabled = isS;
+            buttonCancel.Enabled = isC;
+            buttonPause.Enabled = isP;
+            buttonContinue.Enabled = isCon;
 
+        }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             if (AddWord != null)
@@ -64,6 +75,26 @@ namespace ExamSystem
         private void buttonStart_Click(object sender, EventArgs e)
         {
             StartSearch(sender, e);
+            EnableButton(false, true, true, false);
+        }
+
+        private void buttonPause_Click(object sender, EventArgs e)
+        {
+            Pause(sender, e);
+            EnableButton(false, true, false, true);
+        }
+
+        private void buttonContinue_Click(object sender, EventArgs e)
+        {
+            Continue(sender, e);
+            EnableButton(false, true, true, false);
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Cancel(sender, e);
+            EnableButton(true, false, false, false);
+
         }
     }
 }

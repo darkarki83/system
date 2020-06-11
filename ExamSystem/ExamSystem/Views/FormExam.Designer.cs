@@ -31,7 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExam));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.stripButtonAddW = new System.Windows.Forms.ToolStripButton();
+            this.stripButtonAddFrom = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.listBoxWord = new System.Windows.Forms.ListBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -42,12 +47,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonFile = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.stripButtonAddW = new System.Windows.Forms.ToolStripButton();
-            this.stripButtonAddFrom = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.listBoxFiles = new System.Windows.Forms.ListBox();
-            this.opToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,19 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // opToolStripMenuItem
+            // 
+            this.opToolStripMenuItem.Name = "opToolStripMenuItem";
+            this.opToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.opToolStripMenuItem.Text = "op";
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Text = "&Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -82,6 +95,35 @@
             this.toolStrip1.Size = new System.Drawing.Size(658, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // stripButtonAddW
+            // 
+            this.stripButtonAddW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.stripButtonAddW.Image = ((System.Drawing.Image)(resources.GetObject("stripButtonAddW.Image")));
+            this.stripButtonAddW.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stripButtonAddW.Name = "stripButtonAddW";
+            this.stripButtonAddW.Size = new System.Drawing.Size(63, 22);
+            this.stripButtonAddW.Text = "Add &word";
+            this.stripButtonAddW.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // stripButtonAddFrom
+            // 
+            this.stripButtonAddFrom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.stripButtonAddFrom.Image = ((System.Drawing.Image)(resources.GetObject("stripButtonAddFrom.Image")));
+            this.stripButtonAddFrom.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stripButtonAddFrom.Name = "stripButtonAddFrom";
+            this.stripButtonAddFrom.Size = new System.Drawing.Size(81, 22);
+            this.stripButtonAddFrom.Text = "Add &from file";
+            this.stripButtonAddFrom.Click += new System.EventHandler(this.buttonFile_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // listBoxWord
             // 
@@ -118,6 +160,7 @@
             this.buttonPause.TabIndex = 5;
             this.buttonPause.Text = "Pause";
             this.buttonPause.UseVisualStyleBackColor = true;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // buttonContinue
             // 
@@ -128,6 +171,7 @@
             this.buttonContinue.TabIndex = 6;
             this.buttonContinue.Text = "Continue";
             this.buttonContinue.UseVisualStyleBackColor = true;
+            this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
             // 
             // buttonCancel
             // 
@@ -138,6 +182,7 @@
             this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // labelProgress
             // 
@@ -179,35 +224,6 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // stripButtonAddW
-            // 
-            this.stripButtonAddW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.stripButtonAddW.Image = ((System.Drawing.Image)(resources.GetObject("stripButtonAddW.Image")));
-            this.stripButtonAddW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.stripButtonAddW.Name = "stripButtonAddW";
-            this.stripButtonAddW.Size = new System.Drawing.Size(63, 22);
-            this.stripButtonAddW.Text = "Add &word";
-            this.stripButtonAddW.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // stripButtonAddFrom
-            // 
-            this.stripButtonAddFrom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.stripButtonAddFrom.Image = ((System.Drawing.Image)(resources.GetObject("stripButtonAddFrom.Image")));
-            this.stripButtonAddFrom.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.stripButtonAddFrom.Name = "stripButtonAddFrom";
-            this.stripButtonAddFrom.Size = new System.Drawing.Size(81, 22);
-            this.stripButtonAddFrom.Text = "Add &from file";
-            this.stripButtonAddFrom.Click += new System.EventHandler(this.buttonFile_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
             // listBoxFiles
             // 
             this.listBoxFiles.FormattingEnabled = true;
@@ -215,19 +231,6 @@
             this.listBoxFiles.Name = "listBoxFiles";
             this.listBoxFiles.Size = new System.Drawing.Size(283, 264);
             this.listBoxFiles.TabIndex = 13;
-            // 
-            // opToolStripMenuItem
-            // 
-            this.opToolStripMenuItem.Name = "opToolStripMenuItem";
-            this.opToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.opToolStripMenuItem.Text = "op";
-            // 
-            // closeToolStripMenuItem
-            // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.closeToolStripMenuItem.Text = "&Close";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // FormExam
             // 

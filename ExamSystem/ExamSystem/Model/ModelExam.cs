@@ -20,6 +20,8 @@ namespace ExamSystem.Model
 
         public string NewWord { get; set; }
         public List<string> Words { get => words; set => words = value; }
+        public bool Pause { get; set; }
+        public bool Continium { get; set; }
 
 
         public ModelExam()
@@ -41,10 +43,8 @@ namespace ExamSystem.Model
                 Environment.Exit(0);
             }
 
-
-
-
-
+            Pause = false;
+            Continium = false;
             worker.DoWork += new DoWorkEventHandler(worker_DoWork);
             // Обработчик, позволяющий работать с UI (т.е., взаимодействующий с формой и ее контролам)
             worker.ProgressChanged += new ProgressChangedEventHandler(worker_ProgressChanged);
@@ -102,12 +102,6 @@ namespace ExamSystem.Model
            _mutex.ReleaseMutex();
         }
 
-
-
-
-
-
-
         public  void worker_DoWork(object sender, DoWorkEventArgs e)
         {
             // ВАЖНО: Здесь никогда не обращайтесь к UI (т.е., к форме и ее контролам)
@@ -126,9 +120,29 @@ namespace ExamSystem.Model
                 // и состояние полосы прогресса и заканчиваем асинхронную операцию
                 if (worker.CancellationPending)
                 {
-                    e.Cancel = true;
                     worker.ReportProgress(0);
+
+                    e.Cancel = true;
                     return;
+                }
+                if (Pause)
+                {
+                    for (; ; )
+                    {
+                        Thread.Sleep(100);
+                        if (worker.CancellationPending)
+                        {
+                            Pause = false;
+                            btnCancel_Click(sender, EventArgs.Empty);
+                            break;
+                        }
+                        if(Continium)
+                        {
+                            Pause = false;
+                            Continium = false;
+                            break;
+                        }
+                    }
                 }
             }
 
@@ -159,18 +173,32 @@ namespace ExamSystem.Model
 
         public void btnStartAsyncOperation_Click(object sender, EventArgs e)
         {
-            /*btnStartAsyncOperation.Enabled = false;
-            btnCancel.Enabled = true;*/
-
+            //btnStartAsyncOperation.Enabled = false;
+            //btnCancel.Enabled = true;
             // Запускаем асинхронную операцию
             worker.RunWorkerAsync();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        public void btnCancel_Click(object sender, EventArgs e)
         {
             if (worker.IsBusy)
                 // Останавливаем асинхронную операцию
                 worker.CancelAsync();
         }
+        public void btnPause_Click(object sender, EventArgs e)
+        {
+            if (worker.IsBusy)
+            {
+                Pause = true;
+            }    
+        }
+        public void btnContinue_Click(object sender, EventArgs e)
+        {
+            if (worker.IsBusy)
+            {
+                Continium = true;
+            }
+        }
+
     }
 }
