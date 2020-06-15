@@ -73,8 +73,6 @@ namespace ExamSystem.Presenter
         {
             Model.btnContinue_Click(sender, e);
         }
-
-
         public void CloseForm(object sender, EventArgs e)
         {
             Model.CloseForm();

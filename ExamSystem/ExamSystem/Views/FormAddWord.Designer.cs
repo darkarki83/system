@@ -91,7 +91,7 @@
             this.MinimizeBox = false;
             this.Name = "FormAddWord";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAddWord";
+            this.Text = "Add Word";
             this.ResumeLayout(false);
             this.PerformLayout();
 

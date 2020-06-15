@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB8064B9-E4C7-4A73-98CE-9B79091F3AD6}</ProjectGuid>
+    <ProjectGuid>{40329686-ED88-438F-BC3A-274664CBE1DA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Sem</RootNamespace>
-    <AssemblyName>Sem</AssemblyName>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SemathorForm.cs">
+    <Compile Include="Presenters\LogInPresenter.cs" />
+    <Compile Include="Views\Client.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SemathorForm.Designer.cs">
-      <DependentUpon>SemathorForm.cs</DependentUpon>
+    <Compile Include="Views\Client.Designer.cs">
+      <DependentUpon>Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\BasePresenter.cs" />
+    <Compile Include="Common\IPresenter.cs" />
+    <Compile Include="Common\IView.cs" />
+    <Compile Include="DomainModel\ClientModel.cs" />
+    <Compile Include="DomainModel\IClientModel.cs" />
+    <Compile Include="Views\ILogInView.cs" />
+    <Compile Include="Views\LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenters\ClientPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SemathorForm.resx">
-      <DependentUpon>SemathorForm.cs</DependentUpon>
+    <Compile Include="Views\IClientView.cs" />
+    <EmbeddedResource Include="Views\Client.resx">
+      <DependentUpon>Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

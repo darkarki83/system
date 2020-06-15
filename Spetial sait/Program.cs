@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sem
+namespace Spetial_sait
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Sem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SemathorForm());
+            Application.Run(new ServerForm());
         }
     }
 }

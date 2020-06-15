@@ -35,9 +35,15 @@ namespace ExamSystem
         public void EnableButton(bool isS, bool isC, bool isP, bool isCon)
         {
             buttonStart.Enabled = isS;
+            toolStripButtonStart.Enabled = isS;
+            startSearchToolStripMenuItem.Enabled = isS;
             buttonCancel.Enabled = isC;
+            toolStripButtonCancel.Enabled = isC;
+            cancelToolStripMenuItem.Enabled = isC;
             buttonPause.Enabled = isP;
+            pauseToolStripMenuItem.Enabled = isP;
             buttonContinue.Enabled = isCon;
+            continueToolStripMenuItem.Enabled = isCon;
 
         }
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -57,19 +63,23 @@ namespace ExamSystem
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if(ListBoxWord.SelectedIndex >= 0)
+            if (ListBoxWord.SelectedIndex >= 0)
             {
                 if (DialogResult.Yes == MessageBox.Show("Are you sure you want to remove word", "Delete word", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
-                    ListBoxWord.Items.RemoveAt(ListBoxWord.SelectedIndex);
+                {
+                    List<int> list = new List<int>();
+                    foreach (var index in ListBoxWord.SelectedIndices)
+                    {
+                        list.Add((int)index);
+                    }
+                    for (int i = list.Count - 1; i >= 0; i--)
+                    {
+                        ListBoxWord.Items.RemoveAt(list[i]);
+                    }
+                }
             }
             if (ListBoxWord.Items.Count == 0)
                 buttonDelete.Enabled = false;
-        }
-
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CloseForm(sender, e);
-            Close();
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -95,6 +105,17 @@ namespace ExamSystem
             Cancel(sender, e);
             EnableButton(true, false, false, false);
 
+        }
+
+        private void closeMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseForm(sender, e);
+            Close();
+        }
+
+        private void NewFileMenuItem_Click(object sender, EventArgs e)
+        {
+            ListBoxWord.Items.Clear();
         }
     }
 }

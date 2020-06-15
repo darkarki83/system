@@ -1,6 +1,6 @@
 ﻿namespace Sem
 {
-    partial class Form1
+    partial class SemathorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,15 +34,9 @@
             this.NewThread = new System.Windows.Forms.Label();
             this.WaitThread = new System.Windows.Forms.Label();
             this.WorkThread = new System.Windows.Forms.Label();
-            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnStat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listViewWork = new System.Windows.Forms.ListView();
-            this.listViewWait = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listViewNew = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listBoxWork = new System.Windows.Forms.ListBox();
+            this.listBoxWait = new System.Windows.Forms.ListBox();
+            this.listBoxNew = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,95 +116,47 @@
             this.WorkThread.TabIndex = 10;
             this.WorkThread.Text = "Work Threads";
             // 
-            // columnName
+            // listBoxWork
             // 
-            this.columnName.Text = "Name";
-            this.columnName.Width = 120;
+            this.listBoxWork.FormattingEnabled = true;
+            this.listBoxWork.Location = new System.Drawing.Point(21, 89);
+            this.listBoxWork.Name = "listBoxWork";
+            this.listBoxWork.Size = new System.Drawing.Size(205, 147);
+            this.listBoxWork.TabIndex = 22;
+            this.listBoxWork.DoubleClick += new System.EventHandler(this.listBoxWork_DoubleClick);
             // 
-            // columnStat
+            // listBoxWait
             // 
-            this.columnStat.Text = "Stat";
-            this.columnStat.Width = 82;
+            this.listBoxWait.FormattingEnabled = true;
+            this.listBoxWait.Location = new System.Drawing.Point(279, 89);
+            this.listBoxWait.Name = "listBoxWait";
+            this.listBoxWait.Size = new System.Drawing.Size(205, 147);
+            this.listBoxWait.TabIndex = 23;
             // 
-            // listViewWork
+            // listBoxNew
             // 
-            this.listViewWork.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnName,
-            this.columnStat});
-            this.listViewWork.HideSelection = false;
-            this.listViewWork.Location = new System.Drawing.Point(21, 89);
-            this.listViewWork.MultiSelect = false;
-            this.listViewWork.Name = "listViewWork";
-            this.listViewWork.Size = new System.Drawing.Size(206, 142);
-            this.listViewWork.TabIndex = 19;
-            this.listViewWork.UseCompatibleStateImageBehavior = false;
-            this.listViewWork.View = System.Windows.Forms.View.Details;
-            this.listViewWork.DoubleClick += new System.EventHandler(this.listViewWork_DoubleClick);
+            this.listBoxNew.FormattingEnabled = true;
+            this.listBoxNew.Location = new System.Drawing.Point(534, 89);
+            this.listBoxNew.Name = "listBoxNew";
+            this.listBoxNew.Size = new System.Drawing.Size(205, 147);
+            this.listBoxNew.TabIndex = 24;
+            this.listBoxNew.DoubleClick += new System.EventHandler(this.listBoxNew_DoubleClick);
             // 
-            // listViewWait
-            // 
-            this.listViewWait.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listViewWait.HideSelection = false;
-            this.listViewWait.Location = new System.Drawing.Point(271, 89);
-            this.listViewWait.MultiSelect = false;
-            this.listViewWait.Name = "listViewWait";
-            this.listViewWait.Size = new System.Drawing.Size(206, 142);
-            this.listViewWait.TabIndex = 20;
-            this.listViewWait.UseCompatibleStateImageBehavior = false;
-            this.listViewWait.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 120;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Stat";
-            this.columnHeader2.Width = 82;
-            // 
-            // listViewNew
-            // 
-            this.listViewNew.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listViewNew.HideSelection = false;
-            this.listViewNew.Location = new System.Drawing.Point(522, 89);
-            this.listViewNew.MultiSelect = false;
-            this.listViewNew.Name = "listViewNew";
-            this.listViewNew.Size = new System.Drawing.Size(206, 142);
-            this.listViewNew.TabIndex = 21;
-            this.listViewNew.UseCompatibleStateImageBehavior = false;
-            this.listViewNew.View = System.Windows.Forms.View.Details;
-            this.listViewNew.DoubleClick += new System.EventHandler(this.listViewNew_DoubleClick);
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Name";
-            this.columnHeader3.Width = 120;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Stat";
-            this.columnHeader4.Width = 82;
-            // 
-            // Form1
+            // SemathorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 373);
-            this.Controls.Add(this.listViewNew);
-            this.Controls.Add(this.listViewWait);
-            this.Controls.Add(this.listViewWork);
+            this.Controls.Add(this.listBoxNew);
+            this.Controls.Add(this.listBoxWait);
+            this.Controls.Add(this.listBoxWork);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.NumberPlace);
             this.Controls.Add(this.NewThread);
             this.Controls.Add(this.WaitThread);
             this.Controls.Add(this.WorkThread);
-            this.Name = "Form1";
+            this.Name = "SemathorForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
@@ -226,15 +172,9 @@
         private System.Windows.Forms.Label NewThread;
         private System.Windows.Forms.Label WaitThread;
         private System.Windows.Forms.Label WorkThread;
-        private System.Windows.Forms.ColumnHeader columnName;
-        private System.Windows.Forms.ColumnHeader columnStat;
-        private System.Windows.Forms.ListView listViewWork;
-        private System.Windows.Forms.ListView listViewWait;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ListView listViewNew;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ListBox listBoxWork;
+        private System.Windows.Forms.ListBox listBoxWait;
+        private System.Windows.Forms.ListBox listBoxNew;
     }
 }
 

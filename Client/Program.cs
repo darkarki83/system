@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Client.DomainModel;
+using Client.Presenters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sem
+namespace Client
 {
     static class Program
     {
@@ -16,7 +18,8 @@ namespace Sem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SemathorForm());
+            var logInPresenter = new LogInPresenter(new ClientModel(), new LogInForm());
+            Application.Run((Form)logInPresenter.View);
         }
     }
 }

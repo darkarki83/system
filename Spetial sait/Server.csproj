@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB8064B9-E4C7-4A73-98CE-9B79091F3AD6}</ProjectGuid>
+    <ProjectGuid>{0548D241-C994-422B-B181-7AAE61C6F998}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Sem</RootNamespace>
-    <AssemblyName>Sem</AssemblyName>
+    <RootNamespace>Spetial_sait</RootNamespace>
+    <AssemblyName>Spetial sait</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SemathorForm.cs">
+    <Compile Include="ServerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SemathorForm.Designer.cs">
-      <DependentUpon>SemathorForm.cs</DependentUpon>
+    <Compile Include="ServerForm.Designer.cs">
+      <DependentUpon>ServerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SemathorForm.resx">
-      <DependentUpon>SemathorForm.cs</DependentUpon>
+    <EmbeddedResource Include="ServerForm.resx">
+      <DependentUpon>ServerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

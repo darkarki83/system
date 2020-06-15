@@ -26,7 +26,10 @@ namespace ExamSystem.Views
 
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
-            AddNewW(sender, e);
+            //if (NewWord.Length > 0)
+            {
+                AddNewW(sender, e);
+            }
             Close();
         }
 
