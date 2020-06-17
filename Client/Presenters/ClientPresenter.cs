@@ -16,6 +16,14 @@ namespace Client.Presenters
         {
             Model = model;
             View = view;
+
+            View.GetConectInfo += GetConectInfo;
+        }
+        private void GetConectInfo(object sender, EventArgs e)
+        {
+            View.Names = Model.Names;
+            View.Ip = Model.Ip;
+            View.Port = Model.Port;
         }
     }
 }

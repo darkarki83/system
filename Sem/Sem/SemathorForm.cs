@@ -25,7 +25,7 @@ namespace Sem
             listBoxNew.DisplayMember = "Indexsator";
             listBoxWait.DisplayMember = "Indexsator";
             listBoxWork.DisplayMember = "Indexsator";
-            //semaphore = new Semaphore(3, 3, SemaphoreGuid);
+            semaphore = new Semaphore(3, 3);
         }
         public void CaptureSemaphore()
         {
@@ -37,14 +37,19 @@ namespace Sem
         }
         public void WorkWaitingThread(NewThread thread)
         {
-            listBoxWork.Invoke((MethodInvoker)(() => listBoxWork.Items.Add(thread)));
-            listBoxWait.Invoke((MethodInvoker)(() => listBoxWait.Items.Remove(thread)));
+            if (numericUpDown1.Value > listBoxWork.Items.Count)
+            {
+                listBoxWork.Invoke((MethodInvoker)(() => listBoxWork.Items.Add(thread)));
+                listBoxWait.Invoke((MethodInvoker)(() => listBoxWait.Items.Remove(thread)));
+            }
+           
         }
         public void UpdateWorkingThread(NewThread thread)
         {
             int selectedIndex = 0;
             listBoxWork.Invoke((MethodInvoker)(() => selectedIndex = listBoxWork.SelectedIndex));
-            int index = listBoxWork.Items.IndexOf(thread);
+            int index = 0;
+            listBoxWork.Invoke((MethodInvoker)(() => index = listBoxWork.Items.IndexOf(thread)));
 
             if (index != -1 && index < listBoxWork.Items.Count)
             {
@@ -66,41 +71,61 @@ namespace Sem
         }
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            if(numericUpDown1.Value != 0)
-            {
                 count++;
                 NewThread thread = new NewThread(count, this);
 
                 thread.Status = " new ";
                 listBoxNew.Items.Add(thread);
-            }
         }
 
         private void listBoxNew_DoubleClick(object sender, EventArgs e)
         {
             if(listBoxNew.SelectedItem != null)
             {
-                if(listBoxWork.Items.Count == 0)
-                {
-                    semaphore = new Semaphore((int)numericUpDown1.Value, (int)numericUpDown1.Value);
-                }
                 NewThread thread = listBoxNew.SelectedItem as NewThread;
                 thread.Status = "Wait";
                 listBoxWait.Invoke((MethodInvoker)(() => listBoxWait.Items.Add(thread)));
-                listBoxWait.Invoke((MethodInvoker)(() => listBoxWait.Items.RemoveAt(listBoxNew.SelectedIndex)));
+                listBoxNew.Invoke((MethodInvoker)(() => listBoxNew.Items.RemoveAt(listBoxNew.SelectedIndex)));
                 thread.Start();
             }
         }
 
         private void listBoxWork_DoubleClick(object sender, EventArgs e)
         {
-            if (listBoxWork.SelectedIndex != null)
+            int selectedIndex = 0;
+            listBoxWork.Invoke((MethodInvoker)(() => selectedIndex = listBoxWork.SelectedIndex));
+            if (selectedIndex >= 0)
             {
                 NewThread thread = listBoxWork.SelectedItem as NewThread;
                 thread.StopThread = true;
-                listBoxWork.Items.RemoveAt(listBoxWork.SelectedIndex);
-
+                listBoxWork.Invoke((MethodInvoker)(() => listBoxWork.Items.RemoveAt(selectedIndex)));
             }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            int count = 0;
+            listBoxWork.Invoke((MethodInvoker)(() => count = listBoxWork.Items.Count));
+            if(count > numericUpDown1.Value)
+            {
+
+                NewThread thread = listBoxWork.Items[0] as NewThread;
+                DeleteWorkingThread(thread);
+            }
+            else
+            {
+                ReleaseSemaphore();
+                /*object temp = 0;
+                do
+                {
+                    listBoxWait.Invoke((MethodInvoker)(() => temp = listBoxWait.Items.Count));
+                    if ((int)temp > 0)
+                    {
+                        ReleaseSemaphore();
+                    }
+                } while (count > numericUpDown1.Value && (int)temp < 0);*/
+            }
+
         }
     }
     public class NewThread

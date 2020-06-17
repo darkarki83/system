@@ -18,8 +18,15 @@ namespace Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var logInPresenter = new LogInPresenter(new ClientModel(), new LogInForm());
-            Application.Run((Form)logInPresenter.View);
+
+            var login = new LogInForm();
+            Application.Run(login);
+            if (login.DialogResult == DialogResult.OK)
+            {
+                var clientPresenter = new ClientPresenter(new ClientModel(login.Names, login.Ip, login.Port), new ClientForm());
+                Application.Run((Form)clientPresenter.View);
+            }
+
         }
     }
 }

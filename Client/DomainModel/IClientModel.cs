@@ -8,6 +8,8 @@ namespace Client.DomainModel
 {
     public interface IClientModel
     {
-
+        string Names { get; set; }
+        string Ip { get; set; }
+        string Port { get; set; }
     }
 }

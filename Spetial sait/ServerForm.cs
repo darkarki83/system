@@ -63,53 +63,61 @@ namespace Spetial_sait
                 
 
                 string s = stream.ReadLine();
+                if (s != null)
+                {
+                    /*if (s != null)
+                    {
+                        string name = string.Empty;
+                        string massage = string.Empty;
+                        bool inName = false;
+                        foreach (var item in s)
+                        {
+                            if (item == ':' && inName == false)
+                            {
+                                inName = true;
+                            }
+                            else if (item != ':' && inName == false)
+                            {
+                                name += item;
+                            }
+                            else if (item != ':' && inName == true)
+                            {
+                                massage += item;
+                            }
+                        }
+                        inName = false;
+                        name = name.Trim();
+                        massage = massage.Trim();
+                        foreach (var user in UsersLists)
+                        {
+                            if (user.Name == name)
+                            {
+                                user.Masseges.Add(massage);
+                                inName = true;
+                            }
+                        }
+                        if (inName == false)
+                        {
+                            var user = new UsersList();
+                            user.Name = name;
+                            user.Masseges.Add(massage);
+                            UsersLists.Add(user);
+                        }
+                        listBoxHapen.Items.Add(s);
+                    }*/
+                    // Добавляем полученное сообщение в список
+                    listBoxHapen.Items.Add(s);
+                    // При получении сообщения EXIT завершаем работу приложения
+                    if (s.ToUpper() == "EXIT")
+                    {
+                        listner.Stop();
+                        Close();
+                    }
+                }
 
-                string name = string.Empty;
-                string massage = string.Empty;
-                bool inName = false;
-                foreach (var item in s)
-                {
-                    if (item == ':' && inName == false)
-                    {
-                        inName = true;
-                    }
-                    else if(item != ':' && inName == false)
-                    {
-                        name += item;
-                    }
-                    else if (item != ':' && inName == true)
-                    {
-                        massage += item;
-                    }
-                }
-                inName = false;
-                name = name.Trim();
-                massage = massage.Trim();
-                foreach (var user in UsersLists)
-                {
-                    if(user.Name == name)
-                    {
-                        user.Masseges.Add(massage);
-                        inName = true;
-                    }
-                }
-                if(inName == false)
-                {
-                    var user = new UsersList();
-                    user.Name = name;
-                    user.Masseges.Add(massage);
-                    UsersLists.Add(user);
-                }
-                // Добавляем полученное сообщение в список
-                listBoxHapen.Items.Add(s);
                 client.Close();
-                // При получении сообщения EXIT завершаем работу приложения
-                if (s.ToUpper() == "EXIT")
-                {
-                    listner.Stop();
-                    Close();
-                }
             }
+
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)

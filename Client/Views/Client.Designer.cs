@@ -33,7 +33,7 @@
             this.buttonSend = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxMassage = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxMassege = new System.Windows.Forms.ListBox();
             this.labelToMe = new System.Windows.Forms.Label();
             this.buttonDownload = new System.Windows.Forms.Button();
             this.buttonClier = new System.Windows.Forms.Button();
@@ -81,13 +81,13 @@
             this.textBoxMassage.Size = new System.Drawing.Size(285, 20);
             this.textBoxMassage.TabIndex = 15;
             // 
-            // listBox1
+            // listBoxMassege
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 166);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(356, 251);
-            this.listBox1.TabIndex = 16;
+            this.listBoxMassege.FormattingEnabled = true;
+            this.listBoxMassege.Location = new System.Drawing.Point(12, 166);
+            this.listBoxMassege.Name = "listBoxMassege";
+            this.listBoxMassege.Size = new System.Drawing.Size(356, 251);
+            this.listBoxMassege.TabIndex = 16;
             // 
             // labelToMe
             // 
@@ -125,7 +125,7 @@
             this.Controls.Add(this.buttonClier);
             this.Controls.Add(this.buttonDownload);
             this.Controls.Add(this.labelToMe);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxMassege);
             this.Controls.Add(this.textBoxMassage);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.textBoxName);
@@ -135,6 +135,7 @@
             this.MaximizeBox = false;
             this.Name = "ClientForm";
             this.Text = "Client";
+            this.Load += new System.EventHandler(this.ClientForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,7 +148,7 @@
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBoxMassage;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxMassege;
         private System.Windows.Forms.Label labelToMe;
         private System.Windows.Forms.Button buttonDownload;
         private System.Windows.Forms.Button buttonClier;

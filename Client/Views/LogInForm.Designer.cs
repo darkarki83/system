@@ -75,6 +75,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(207, 22);
             this.textBoxName.TabIndex = 3;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxIP
             // 
@@ -83,6 +84,7 @@
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(207, 22);
             this.textBoxIP.TabIndex = 4;
+            this.textBoxIP.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxServer
             // 
@@ -91,9 +93,11 @@
             this.textBoxServer.Name = "textBoxServer";
             this.textBoxServer.Size = new System.Drawing.Size(207, 22);
             this.textBoxServer.TabIndex = 5;
+            this.textBoxServer.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // buttonLogIn
             // 
+            this.buttonLogIn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLogIn.Location = new System.Drawing.Point(202, 181);
             this.buttonLogIn.Name = "buttonLogIn";
@@ -105,6 +109,7 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonCancel.Location = new System.Drawing.Point(87, 181);
             this.buttonCancel.Name = "buttonCancel";

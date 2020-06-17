@@ -18,15 +18,15 @@ namespace Client.Presenters
             Model = model;
             View = view;
 
-            View.LogIn += LogIn;
+            //View.LogIn += LogIn;
 
         }
 
         public void LogIn(object sender, EventArgs e)
         {
 
-            var clientPresenter = new ClientPresenter(Model, new ClientForm());
-            ((Form)clientPresenter.View).ShowDialog();
+            //var clientPresenter = new ClientPresenter(Model, new ClientForm());
+            //((Form)clientPresenter.View).ShowDialog();
         }
         public void Load(object sender, EventArgs e)
         {
