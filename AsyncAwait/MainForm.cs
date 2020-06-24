@@ -63,9 +63,7 @@ namespace AsyncAwait
             });
             // Запускаем асинхронную операцию
             await Task.Factory.StartNew(() => SomeLongOperation(progress), TaskCreationOptions.LongRunning);
-
         }
-
         private void textBoxFrom_TextChanged(object sender, EventArgs e)
         {
             if(textBoxFrom.TextLength > 0 && textBoxTo.TextLength > 0)
@@ -73,7 +71,6 @@ namespace AsyncAwait
                 buttonCopy.Enabled = true;
             }
         }
-
         private async void SomeLongOperation(IProgress<Tuple<int>> progress)
         {
             // ВАЖНО: Здесь никогда не обращайтесь к UI (т.е., к форме и ее контролам)
@@ -85,22 +82,6 @@ namespace AsyncAwait
                 await fstream.ReadAsync(array, 0, array.Length);
 
                 textFromFile = System.Text.Encoding.Default.GetString(array);
-                //Console.WriteLine($"Текст из файла: {textFromFile}");
-                /*int i = 0;
-                string temp = "";
-                foreach (var item in textFromFile)
-                {
-                    temp += item;
-                    i++;
-                    if (item == '\n')
-                    {
-
-                        listBox1.Items.Add(temp);
-                        temp = "";
-
-                    }
-                }
-                listBox1.Items.Add(temp);*/ // на посмотреть
             }
             string files = string.Empty;
             textBoxTo.Invoke((MethodInvoker)(() => files = textBoxTo.Text));
@@ -110,38 +91,20 @@ namespace AsyncAwait
                 byte[] array = Encoding.Default.GetBytes(textFromFile);
                 int count = Encoding.Default.GetByteCount(textFromFile);
                 int k = count / 100;
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i <= 100; i++)
                 {
-
                     Task.Delay(100).Wait();
-                    if (i != 99)
+                    if (i != 100)
                     {
-                        fstream2.Write(array, i * k, k * (i + 1));
+                        fstream2.Write(array, i * k, k);
                     }
                     else
                     {
-                        fstream2.Write(array, i * k, count);
+                        fstream2.Write(array, i * k, count - i * k);
                     }
                     progress.Report(new Tuple<int>(i));
                 }
-                //fstream2.Write(array, 0, 144);
-                // асинхронная запись массива байтов в файл
-                //await fstream2.WriteAsync(array, 0, array.Length);
-        
             }
-            // Выполняем длительную операцию...
-           // for (int i = 1; i <= 100; i++)
-            {
-                // Здесь в боевых проектах мы будем делать какую-то полезную работу
-                //Task.Delay(100).Wait();
-
-                // Сообщаем о необходимости обновить текст и состояние полосы прогресса
-                //progress.Report(new Tuple<int>(i));
-
-            }
-            // Сообщаем о необходимости обновить текст и состояние полосы
-            // прогресса с информацией о 100% завершении работы
-            //progress.Report(new Tuple<int>(100));
         }
     }
 }

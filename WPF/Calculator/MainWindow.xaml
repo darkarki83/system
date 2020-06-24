@@ -1,0 +1,90 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="400" FontSize="20" Background="AliceBlue">
+    <!--<StackPanel VerticalAlignment="Stretch" Visibility="Visible">-->
+        <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition  Height="auto" />
+            <RowDefinition  Height="auto" />
+            <RowDefinition  Height="*" />
+            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="0" Margin="0,10,0,0" BorderThickness="0"  Background="LightSteelBlue" Padding="0, 20, 5, 0" TextAlignment="Right" FontSize="30"  Text="0"/>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Padding="10" Content="MC" Background="LightSteelBlue" BorderThickness="0"></Button>
+            <Button Grid.Row="0" Grid.Column="1" Padding="10" Content="MR" Background="LightSteelBlue" BorderThickness="0"></Button>
+            <Button Grid.Row="0" Grid.Column="2" Padding="10" Content="M+" Background="LightSteelBlue" BorderThickness="0"></Button>
+            <Button Grid.Row="0" Grid.Column="3" Padding="10" Content="M-" Background="LightSteelBlue" BorderThickness="0"></Button>
+            <Button Grid.Row="0" Grid.Column="4" Padding="10" Content="MS" Background="LightSteelBlue" BorderThickness="0"></Button>
+            <Button Grid.Row="0" Grid.Column="5" Padding="10" Content="M_" Background="LightSteelBlue" BorderThickness="0"></Button>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Padding="10" Background="LightBlue" Content="%" BorderThickness="0"></Button>
+            <Button Grid.Row="0" Grid.Column="1" Padding="10" Background="LightBlue" Content="CE" BorderThickness="0"></Button>
+            <Button Grid.Row="0" Grid.Column="2" Padding="10" Background="LightBlue" Content="C" BorderThickness="0"></Button>
+            <Button Grid.Row="0" Grid.Column="3" Padding="10" Background="LightBlue" Content="(--" BorderThickness="0"></Button>
+            <Button Grid.Row="1" Grid.Column="0" Padding="10" Background="LightBlue" Content="1/x" BorderThickness="0"></Button>
+            <Button Grid.Row="1" Grid.Column="1" Padding="10" Background="LightBlue" Content="x^2" BorderThickness="0"></Button>
+            <Button Grid.Row="1" Grid.Column="2" Padding="10" Background="LightBlue" Content="2/x" BorderThickness="0"></Button>
+            <Button Grid.Row="1" Grid.Column="3" Padding="10" Background="LightBlue" Content="/" BorderThickness="0" HorizontalContentAlignment="Center"></Button>
+            <Button Grid.Row="2" Grid.Column="0" Padding="10" Content="7" BorderThickness="0"></Button>
+            <Button Grid.Row="2" Grid.Column="1" Padding="10" Content="8" BorderThickness="0"></Button>
+            <Button Grid.Row="2" Grid.Column="2" Padding="10" Content="9" BorderThickness="0"></Button>
+            <Button Grid.Row="2" Grid.Column="3" Padding="10" Background="LightBlue" Content="*" BorderThickness="0"></Button>
+            <Button Grid.Row="3" Grid.Column="0" Padding="10" Content="4" BorderThickness="0"></Button>
+            <Button Grid.Row="3" Grid.Column="1" Padding="10" Content="5" BorderThickness="0"></Button>
+            <Button Grid.Row="3" Grid.Column="2" Padding="10" Content="6" BorderThickness="0"></Button>
+            <Button Grid.Row="3" Grid.Column="3" Padding="10" Background="LightBlue" Content="-" BorderThickness="0"></Button>
+            <Button Grid.Row="4" Grid.Column="0" Padding="10" Content="1" BorderThickness="0"></Button>
+            <Button Grid.Row="4" Grid.Column="1" Padding="10" Content="2" BorderThickness="0"></Button>
+            <Button Grid.Row="4" Grid.Column="2" Padding="10" Content="3" BorderThickness="0"></Button>
+            <Button Grid.Row="4" Grid.Column="3" Padding="10" Background="LightBlue" Content="+" BorderThickness="0"></Button>
+            <Button Grid.Row="5" Grid.Column="0" Padding="10" Content="+/-" BorderThickness="0"></Button>
+            <Button Grid.Row="5" Grid.Column="1" Padding="10" Content="0" BorderThickness="0"></Button>
+            <Button Grid.Row="5" Grid.Column="2" Padding="10" Content="," BorderThickness="0"></Button>
+            <Button Grid.Row="5" Grid.Column="3" Padding="10" Background="LightBlue" Content="=" BorderThickness="0"></Button>
+        </Grid>
+    </Grid>
+        
+        
+       <!-- <StackPanel Orientation="Horizontal" Height="auto" Margin="10, 0, 10, 0" >
+            <Button Content="MC" Background="LightSteelBlue" Padding="20" Height="auto"/>
+            <Button Content="MR" Background="LightSteelBlue" Padding="20" Height="auto"/>
+            <Button Content="MS" Background="LightSteelBlue" Padding="20" Height="auto"/>
+            <Button Content="M+" Background="LightSteelBlue" Padding="20" Height="auto"/>
+            <Button Content="M-" Background="LightSteelBlue" Padding="20" Height="auto"/>
+        </StackPanel>  -->
+      
+</Window>

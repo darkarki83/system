@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simafor", "Simafor\Simafor.csproj", "{80A00D69-79C0-49AC-957A-EF0DBE59378C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator.csproj", "{F900CF90-1E9A-4CEC-836D-03CB3BDAD749}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{80A00D69-79C0-49AC-957A-EF0DBE59378C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80A00D69-79C0-49AC-957A-EF0DBE59378C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80A00D69-79C0-49AC-957A-EF0DBE59378C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80A00D69-79C0-49AC-957A-EF0DBE59378C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F900CF90-1E9A-4CEC-836D-03CB3BDAD749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F900CF90-1E9A-4CEC-836D-03CB3BDAD749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F900CF90-1E9A-4CEC-836D-03CB3BDAD749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F900CF90-1E9A-4CEC-836D-03CB3BDAD749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {050152C8-B7C1-4F02-A165-11C007245E1B}
+		SolutionGuid = {189F1056-E942-426F-85DF-FA9D8A71318F}
 	EndGlobalSection
 EndGlobal
